@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AssetTrack · Company Asset Management</title>
+  <meta name="description" content="Assign laptops, monitors, phones and more. Track status and report missing or damaged assets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="grid-overlay"></span>
+  </div>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass" id="sidebar">
+      <div class="brand">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+        </div>
+        <div>
+          <h1>AssetTrack</h1>
+          <p>Admin Console</p>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-item active" data-view="dashboard"><span class="ico">📊</span><span>Dashboard</span></button>
+        <button class="nav-item" data-view="assets"><span class="ico">💻</span><span>Assets</span></button>
+        <button class="nav-item" data-view="employees"><span class="ico">👥</span><span>Employees</span></button>
+        <button class="nav-item" data-view="reports"><span class="ico">🚨</span><span>Issue Reports</span><b class="badge" id="issueBadge">0</b></button>
+        <button class="nav-item" data-view="activity"><span class="ico">🕒</span><span>Activity Log</span></button>
+        <span class="nav-indicator" id="navIndicator"></span>
+      </nav>
+
+      <div class="side-footer">
+        <div class="admin-card">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Admin</strong>
+            <small>IT Department</small>
+          </div>
+        </div>
+        <button class="btn ghost small full" id="resetBtn">↺ Reset demo data</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar glass">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="globalSearch" placeholder="Search assets, serials, employees…" autocomplete="off" />
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+          <button class="btn primary" id="addAssetBtn">＋ New Asset</button>
+        </div>
+      </header>
+
+      <section class="view" id="view"></section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal glass" id="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="modalTitle"></h3>
+        <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <form id="modalForm" novalidate>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-foot">
+          <button type="button" class="btn ghost" id="modalCancel">Cancel</button>
+          <button type="submit" class="btn primary" id="modalSubmit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
